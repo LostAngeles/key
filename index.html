@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML Keyboard App</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />	
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onselectstart="return false" id="body">
+	
+	<div class="container">
+
+		<div class="monitor">			
+			<div class="view-bottom">
+				<div class="view-top"><textarea class="the-text" id="words" placeholder="CTRL+ALT to change language, lightbulb-icon button to activate keyboard backlit" autofocus></textarea></div>				
+				<div class="view-text">Companion</div>
+			</div>
+		</div>				
+		
+		<div class="the-keyboard" id="the-keyboard">
+			<!-- ESC & F buttons area -->
+			<div class="row">
+				<div class="key esc" data-text="nn" data-spec="27"  onclick="print(event)" id="esc">Esc</div>
+				<div class="key"     data-text="nn" data-spec="112" onclick="print(event)">F1</div>
+				<div class="key"     data-text="nn" data-spec="113" onclick="print(event)">F2</div>
+				<div class="key"     data-text="nn" data-spec="114" onclick="print(event)">F3</div>
+				<div class="key"     data-text="nn" data-spec="115" onclick="print(event)">F4</div>
+				<div class="key"     data-text="nn" data-spec="116" onclick="print(event)">F5</div>
+				<div class="key"     data-text="nn" data-spec="117" onclick="print(event)">F6</div>
+				<div class="key"     data-text="nn" data-spec="118" onclick="print(event)">F7</div>
+				<div class="key"     data-text="nn" data-spec="119" onclick="print(event)">F8</div>
+				<div class="key"     data-text="nn" data-spec="120" onclick="print(event)">F9</div>
+				<div class="key"     data-text="nn" data-spec="121" onclick="print(event)">F10</div>
+				<div class="key"     data-text="nn" data-spec="122" onclick="print(event)">F11</div>
+				<div class="key"     data-text="nn" data-spec="123" onclick="print(event)">F12</div>
+				<div class="key"     data-text="nn" onclick="backlit()"><i class="far fa-lightbulb"></i></div>
+				<div class="key"     data-text="nn" data-spec="46" onclick="delall()">Del</div>
+			</div>
+
+			<!-- Digits buttons area -->
+			<div class="row digit-usual" id="digit-usual">
+				<div class="key" data-text="96" data-spec="192" onclick="print(event)">`</div>
+				<div class="key" data-text="49" data-spec="49"  onclick="print(event)">1</div>
+				<div class="key" data-text="50" data-spec="50"  onclick="print(event)">2</div>
+				<div class="key" data-text="51" data-spec="51"  onclick="print(event)">3</div>
+				<div class="key" data-text="52" data-spec="52"  onclick="print(event)">4</div>
+				<div class="key" data-text="53" data-spec="53"  onclick="print(event)">5</div>
+				<div class="key" data-text="54" data-spec="54"  onclick="print(event)">6</div>
+				<div class="key" data-text="55" data-spec="55"  onclick="print(event)">7</div>
+				<div class="key" data-text="56" data-spec="56"  onclick="print(event)">8</div>
+				<div class="key" data-text="57" data-spec="57"  onclick="print(event)">9</div>
+				<div class="key" data-text="48" data-spec="48"  onclick="print(event)">0</div>
+				<div class="key" data-text="45" data-spec="189" onclick="print(event)">-</div>
+				<div class="key" data-text="61" data-spec="187" onclick="print(event)">=</div>
+				<div class="key backspace" data-spec="8" onclick="backspace()">← Backspace</div>
+			</div>
+			<div class="row digit-shift-eng" id="digit-shift-eng">
+				<div class="key" data-text="126" data-spec="192" onclick="print(event)">~</div>
+				<div class="key" data-text="33"  data-spec="49"  onclick="print(event)">!</div>
+				<div class="key" data-text="64"  data-spec="50"  onclick="print(event)">@</div>
+				<div class="key" data-text="35"  data-spec="51"  onclick="print(event)">#</div>
+				<div class="key" data-text="36"  data-spec="52"  onclick="print(event)">$</div>
+				<div class="key" data-text="37"  data-spec="53"  onclick="print(event)">%</div>
+				<div class="key" data-text="94"  data-spec="54"  onclick="print(event)">^</div>
+				<div class="key" data-text="38"  data-spec="55"  onclick="print(event)">&</div>
+				<div class="key" data-text="42"  data-spec="56"  onclick="print(event)">*</div>
+				<div class="key" data-text="40"  data-spec="57"  onclick="print(event)">(</div>
+				<div class="key" data-text="41"  data-spec="48"  onclick="print(event)">)</div>
+				<div class="key" data-text="95"  data-spec="189" onclick="print(event)">_</div>
+				<div class="key" data-text="43"  data-spec="187" onclick="print(event)">+</div>
+				<div class="key backspace" data-spec="8" onclick="backspace()">← Backspace</div>
+			</div>
+			<div class="row digit-shift-rus" id="digit-shift-rus">
+				<div class="key" data-text="1105" data-spec="192" onclick="print(event)">Ё</div>
+				<div class="key" data-text="33" data-spec="49"  onclick="print(event)">!</div>
+				<div class="key" data-text="34" data-spec="50"  onclick="print(event)">"</div>
+				<div class="key" data-text="35" data-spec="51"  onclick="print(event)">№</div>
+				<div class="key" data-text="59" data-spec="52"  onclick="print(event)">;</div>
+				<div class="key" data-text="37" data-spec="53"  onclick="print(event)">%</div>
+				<div class="key" data-text="58" data-spec="54"  onclick="print(event)">:</div>
+				<div class="key" data-text="63" data-spec="55"  onclick="print(event)">?</div>
+				<div class="key" data-text="42" data-spec="56"  onclick="print(event)">*</div>
+				<div class="key" data-text="40" data-spec="57"  onclick="print(event)">(</div>
+				<div class="key" data-text="41" data-spec="48"  onclick="print(event)">)</div>
+				<div class="key" data-text="95" data-spec="189" onclick="print(event)">_</div>
+				<div class="key" data-text="43" data-spec="187" onclick="print(event)">+</div>
+				<div class="key backspace" data-spec="8" onclick="backspace()">← Backspace</div>
+			</div>
+
+			<!-- Tab & top words area -->
+			<div class="row top-eng" id="top-eng">
+				<div class="key tab" data-text="nn" data-spec="9"  onclick="print(event)">Tab ⇆</div>				
+				<div class="key" data-text="113"  data-spec="81"  onclick="print(event)">Q</div>
+				<div class="key" data-text="119"  data-spec="87"  onclick="print(event)">W</div>
+				<div class="key" data-text="101" data-spec="69"  onclick="print(event)">E</div>
+				<div class="key" data-text="114"  data-spec="82"  onclick="print(event)">R</div>
+				<div class="key" data-text="116"  data-spec="84"  onclick="print(event)">T</div>
+				<div class="key" data-text="121"  data-spec="89"  onclick="print(event)">Y</div>
+				<div class="key" data-text="117"  data-spec="85"  onclick="print(event)">U</div>
+				<div class="key" data-text="105"  data-spec="73"  onclick="print(event)">I</div>
+				<div class="key" data-text="111" data-spec="79"  onclick="print(event)">O</div>
+				<div class="key" data-text="112"  data-spec="80"  onclick="print(event)">P</div>
+				<div class="key" data-text="91" data-spec="219" onclick="print(event)">[</div>
+				<div class="key" data-text="93" data-spec="221" onclick="print(event)">]</div>
+				<div class="key slash" data-text="92" data-spec="220" onclick="print(event)">\</div>
+			</div>
+			<div class="row top-eng-shift" id="top-eng-shift">
+				<div class="key tab" data-text="nn" data-spec="9"  onclick="print(event)">Tab ⇆</div>				
+				<div class="key" data-text="113"  data-spec="81"  onclick="print(event)">Q</div>
+				<div class="key" data-text="119"  data-spec="87"  onclick="print(event)">W</div>
+				<div class="key" data-text="101" data-spec="69"  onclick="print(event)">E</div>
+				<div class="key" data-text="114"  data-spec="82"  onclick="print(event)">R</div>
+				<div class="key" data-text="116"  data-spec="84"  onclick="print(event)">T</div>
+				<div class="key" data-text="121"  data-spec="89"  onclick="print(event)">Y</div>
+				<div class="key" data-text="117"  data-spec="85"  onclick="print(event)">U</div>
+				<div class="key" data-text="105"  data-spec="73"  onclick="print(event)">I</div>
+				<div class="key" data-text="111" data-spec="79"  onclick="print(event)">O</div>
+				<div class="key" data-text="112"  data-spec="80"  onclick="print(event)">P</div>
+				<div class="key" data-text="123" data-spec="219" onclick="print(event)">{</div>
+				<div class="key" data-text="125" data-spec="221" onclick="print(event)">}</div>
+				<div class="key slash" data-text="124" data-spec="220" onclick="print(event)">|</div>
+			</div>
+			<div class="row top-rus" id="top-rus">
+				<div class="key tab" data-text="nn" data-spec="9"  onclick="print(event)">Tab ⇆</div>				
+				<div class="key" data-text="1081" data-spec="81"  onclick="print(event)">Й</div>
+				<div class="key" data-text="1094" data-spec="87"  onclick="print(event)">Ц</div>
+				<div class="key" data-text="1091" data-spec="69"  onclick="print(event)">У</div>
+				<div class="key" data-text="1082" data-spec="82"  onclick="print(event)">К</div>
+				<div class="key" data-text="1077" data-spec="84"  onclick="print(event)">Е</div>
+				<div class="key" data-text="1085" data-spec="89"  onclick="print(event)">Н</div>
+				<div class="key" data-text="1075" data-spec="85"  onclick="print(event)">Г</div>
+				<div class="key" data-text="1096" data-spec="73"  onclick="print(event)">Ш</div>
+				<div class="key" data-text="1097" data-spec="79"  onclick="print(event)">Щ</div>
+				<div class="key" data-text="1079" data-spec="80"  onclick="print(event)">З</div>
+				<div class="key" data-text="1093" data-spec="219" onclick="print(event)">Х</div>
+				<div class="key" data-text="1098" data-spec="221" onclick="print(event)">Ъ</div>
+				<div class="key slash" data-text="92" data-spec="220" onclick="print(event)">\</div>
+			</div>
+			<div class="row top-rus-shift" id="top-rus-shift">
+				<div class="key tab" data-text="nn" data-spec="9"  onclick="print(event)">Tab ⇆</div>			
+				<div class="key" data-text="1081" data-spec="81"  onclick="print(event)">Й</div>
+				<div class="key" data-text="1094" data-spec="87"  onclick="print(event)">Ц</div>
+				<div class="key" data-text="1091" data-spec="69"  onclick="print(event)">У</div>
+				<div class="key" data-text="1082" data-spec="82"  onclick="print(event)">К</div>
+				<div class="key" data-text="1077" data-spec="84"  onclick="print(event)">Е</div>
+				<div class="key" data-text="1085" data-spec="89"  onclick="print(event)">Н</div>
+				<div class="key" data-text="1075" data-spec="85"  onclick="print(event)">Г</div>
+				<div class="key" data-text="1096" data-spec="73"  onclick="print(event)">Ш</div>
+				<div class="key" data-text="1097" data-spec="79"  onclick="print(event)">Щ</div>
+				<div class="key" data-text="1079" data-spec="80"  onclick="print(event)">З</div>
+				<div class="key" data-text="1093" data-spec="219" onclick="print(event)">Х</div>
+				<div class="key" data-text="1098" data-spec="221" onclick="print(event)">Ъ</div>
+				<div class="key slash" data-text="47" data-spec="220" onclick="print(event)">/</div>
+			</div>
+
+			<!-- Caps & middle words area -->
+			<div class="row middle-eng" id="middle-eng">
+				<div class="key caps" data-spec="20" onclick="print(event)">Caps Lock</div>
+				<div class="key" data-text="97"  data-spec="65"  onclick="print(event)">A</div>
+				<div class="key" data-text="115" data-spec="83"  onclick="print(event)">S</div>
+				<div class="key" data-text="100" data-spec="68"  onclick="print(event)">D</div>
+				<div class="key" data-text="102" data-spec="70"  onclick="print(event)">F</div>
+				<div class="key" data-text="103" data-spec="71"  onclick="print(event)">G</div>
+				<div class="key" data-text="104" data-spec="72"  onclick="print(event)">H</div>
+				<div class="key" data-text="106" data-spec="74"  onclick="print(event)">J</div>
+				<div class="key" data-text="107" data-spec="75"  onclick="print(event)">K</div>
+				<div class="key" data-text="108" data-spec="76"  onclick="print(event)">L</div>
+				<div class="key" data-text="59"  data-spec="186" onclick="print(event)">;</div>
+				<div class="key" data-text="39"  data-spec="222" onclick="print(event)">'</div>
+				<div class="key enter" data-spec="13"  onclick="line()">↩ Enter</div>				
+			</div>
+			<div class="row middle-eng-shift" id="middle-eng-shift">
+				<div class="key caps" data-spec="20" onclick="print(event)">Caps Lock</div>
+				<div class="key" data-text="97"  data-spec="65"  onclick="print(event)">A</div>
+				<div class="key" data-text="115" data-spec="83"  onclick="print(event)">S</div>
+				<div class="key" data-text="100" data-spec="68"  onclick="print(event)">D</div>
+				<div class="key" data-text="102" data-spec="70"  onclick="print(event)">F</div>
+				<div class="key" data-text="103" data-spec="71"  onclick="print(event)">G</div>
+				<div class="key" data-text="104" data-spec="72"  onclick="print(event)">H</div>
+				<div class="key" data-text="106" data-spec="74"  onclick="print(event)">J</div>
+				<div class="key" data-text="107" data-spec="75"  onclick="print(event)">K</div>
+				<div class="key" data-text="108" data-spec="76"  onclick="print(event)">L</div>
+				<div class="key" data-text="58"  data-spec="186" onclick="print(event)">:</div>
+				<div class="key" data-text="34"  data-spec="222" onclick="print(event)">"</div>
+				<div class="key enter" data-spec="13"  onclick="line()">↩ Enter</div>				
+			</div>
+			<div class="row" id="middle-rus">
+				<div class="key caps" data-spec="20" onclick="print(event)">Caps Lock</div>
+				<div class="key" data-text="1092" data-spec="65"  onclick="print(event)">Ф</div>
+				<div class="key" data-text="1099" data-spec="83"  onclick="print(event)">Ы</div>
+				<div class="key" data-text="1074" data-spec="68"  onclick="print(event)">В</div>
+				<div class="key" data-text="1072" data-spec="70"  onclick="print(event)">А</div>
+				<div class="key" data-text="1087" data-spec="71"  onclick="print(event)">П</div>
+				<div class="key" data-text="1088" data-spec="72"  onclick="print(event)">Р</div>
+				<div class="key" data-text="1086" data-spec="74"  onclick="print(event)">О</div>
+				<div class="key" data-text="1083" data-spec="75"  onclick="print(event)">Л</div>
+				<div class="key" data-text="1076" data-spec="76"  onclick="print(event)">Д</div>
+				<div class="key" data-text="1078" data-spec="186" onclick="print(event)">Ж</div>
+				<div class="key" data-text="1101" data-spec="222" onclick="print(event)">Э</div>
+				<div class="key enter" data-spec="13"  onclick="line()">↩ Enter</div>				
+			</div>
+
+			<!-- Shift & bottom words area -->
+			<div class="row bottom-eng" id="bottom-eng">
+				<div class="key lshift" data-text=""    data-spec="16"  onclick="print(event)">⇧ Shift</div>
+				<div class="key"        data-text="122" data-spec="90"  onclick="print(event)">Z</div>
+				<div class="key"        data-text="120" data-spec="88"  onclick="print(event)">X</div>
+				<div class="key"        data-text="99"  data-spec="67"  onclick="print(event)">C</div>
+				<div class="key"        data-text="118" data-spec="86"  onclick="print(event)">V</div>
+				<div class="key"        data-text="98"  data-spec="66"  onclick="print(event)">B</div>
+				<div class="key"        data-text="110" data-spec="78"  onclick="print(event)">N</div>
+				<div class="key"        data-text="109" data-spec="77"  onclick="print(event)">M</div>
+				<div class="key"        data-text="44"  data-spec="188" onclick="print(event)">,</div>
+				<div class="key"        data-text="46"  data-spec="190" onclick="print(event)">.</div>
+				<div class="key"        data-text="47"  data-spec="191" onclick="print(event)">/</div>
+				<div class="key rshift" data-text=""    data-spec="16"  onclick="print(event)">⇧ Shift</div>							
+			</div>
+			<div class="row bottom-eng-shift" id="bottom-eng-shift">
+				<div class="key lshift" data-text=""    data-spec="16"  onclick="print(event)">⇧ Shift</div>
+				<div class="key"        data-text="122" data-spec="90"  onclick="print(event)">Z</div>
+				<div class="key"        data-text="120" data-spec="88"  onclick="print(event)">X</div>
+				<div class="key"        data-text="99"  data-spec="67"  onclick="print(event)">C</div>
+				<div class="key"        data-text="118" data-spec="86"  onclick="print(event)">V</div>
+				<div class="key"        data-text="98"  data-spec="66"  onclick="print(event)">B</div>
+				<div class="key"        data-text="110" data-spec="78"  onclick="print(event)">N</div>
+				<div class="key"        data-text="109" data-spec="77"  onclick="print(event)">M</div>
+				<div class="key"        data-text="60"  data-spec="188" onclick="print(event)"><</div>
+				<div class="key"        data-text="62"  data-spec="190" onclick="print(event)">></div>
+				<div class="key"        data-text="63"  data-spec="191" onclick="print(event)">?</div>
+				<div class="key rshift" data-text=""    data-spec="16"  onclick="print(event)">⇧ Shift</div>							
+			</div>
+			<div class="row bottom-rus" id="bottom-rus">
+				<div class="key lshift" data-text="" data-spec="16" onclick="print(event)">⇧ Shift</div>
+				<div class="key" data-text="1103"    data-spec="90"  onclick="print(event)">Я</div>
+				<div class="key" data-text="1095"    data-spec="88"  onclick="print(event)">Ч</div>
+				<div class="key" data-text="1089"    data-spec="67"  onclick="print(event)">С</div>
+				<div class="key" data-text="1084"    data-spec="86"  onclick="print(event)">М</div>
+				<div class="key" data-text="1080"    data-spec="66"  onclick="print(event)">И</div>
+				<div class="key" data-text="1090"    data-spec="78"  onclick="print(event)">Т</div>
+				<div class="key" data-text="1100"    data-spec="77"  onclick="print(event)">Ь</div>
+				<div class="key" data-text="1073"    data-spec="188" onclick="print(event)">Б</div>
+				<div class="key" data-text="1102"    data-spec="190" onclick="print(event)">Ю</div>
+				<div class="key" data-text="46"      data-spec="191" onclick="print(event)">.</div>
+				<div class="key rshift" data-text=""    data-spec="16" onclick="print(event)">⇧ Shift</div>							
+			</div>
+			<div class="row bottom-rus-shift" id="bottom-rus-shift">
+				<div class="key lshift" data-text="" data-spec="16" onclick="print(event)">⇧ Shift</div>
+				<div class="key" data-text="1103"    data-spec="90"  onclick="print(event)">Я</div>
+				<div class="key" data-text="1095"    data-spec="88"  onclick="print(event)">Ч</div>
+				<div class="key" data-text="1089"    data-spec="67"  onclick="print(event)">С</div>
+				<div class="key" data-text="1084"    data-spec="86"  onclick="print(event)">М</div>
+				<div class="key" data-text="1080"    data-spec="66"  onclick="print(event)">И</div>
+				<div class="key" data-text="1090"    data-spec="78"  onclick="print(event)">Т</div>
+				<div class="key" data-text="1100"    data-spec="77"  onclick="print(event)">Ь</div>
+				<div class="key" data-text="1073"    data-spec="188" onclick="print(event)">Б</div>
+				<div class="key" data-text="1102"    data-spec="190" onclick="print(event)">Ю</div>
+				<div class="key" data-text="44"      data-spec="191" onclick="print(event)">,</div>
+				<div class="key rshift" data-text="" data-spec="16" onclick="print(event)">⇧ Shift</div>							
+			</div>
+
+			<!-- Space, ctrl, windows, alt  area -->
+			<div class="row">
+				<div class="key ctrl"    data-spec="17" onclick="print(event)">Ctrl</div>
+				<div class="key windows" data-spec="91" onclick="print(event)"><i class="fab fa-windows"></i></div>
+				<div class="key alt"     data-spec="18" onclick="print(event)">Alt</div>
+				<div class="key space"   data-text="32" data-spec="32" onclick="print(event)">Keyboard App</div>
+				<div class="key alt"     data-spec="18" onclick="print(event)">Alt</div>
+				<div class="key windows" data-spec="91" onclick="print(event)"><i class="fab fa-windows"></i></div>
+				<div class="key menu"    data-spec="93" onclick="print(event)"><i class="fas fa-bars"></i></div>
+				<div class="key ctrl"    data-spec="17" onclick="print(event)">Ctrl</div>										
+			</div>
+		</div>
+	</div>
+
+	<!-- -->
+	<script type="text/javascript" src="keyboard.js"></script>
+	<script type="text/javascript" src="backspace.js"></script>	<!-- For "Backspace" -->
+	<script type="text/javascript" src="KeyboardPressEffect.js"></script>
+	<script type="text/javascript" src="backlit.js"></script> <!-- For backlit keyboard -->
+	<script type="text/javascript" src="delall.js"></script> <!-- For "Delete" (erase everything) -->
+	<script type="text/javascript" src="line.js"></script> <!-- For "Enter" -->
+</body>
+</html>
